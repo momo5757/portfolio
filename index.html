@@ -1,0 +1,35 @@
+---
+layout: null
+title: wzhn.me
+---
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WZN - 作品集</title>
+<link rel="apple-touch-icon-precomposed" href="{{site.url}}/favicon-152.png">
+<link rel="shortcut icon" sizes="196x196" href="{{site.url}}/favicon-196.png">
+<link rel='mask-icon' href='{{site.url}}/favicon.svg' color='#5b3340'>
+<style>
+    body {
+      width: 100%;
+      overflow-x: hidden;
+      text-align: center;
+    }
+    img {
+      width: 1440px;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+</style>
+</head>
+<body>
+  {% for file in site.static_files %}
+  {% if file.path contains 'portfolio' %}
+    <img src="{{site.url}}{{site.baseurl}}/portfolio/{{file.name}}" alt="">
+  {% endif %}
+  {% endfor %}
+</body>
+</html>
