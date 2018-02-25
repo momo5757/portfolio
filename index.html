@@ -8,10 +8,12 @@ title: wzhn.me
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f5abf1">
 <title>WZN - 作品集</title>
 <link rel="apple-touch-icon-precomposed" href="{{site.url}}/favicon-152.png">
 <link rel="shortcut icon" sizes="196x196" href="{{site.url}}/favicon-196.png">
 <link rel='mask-icon' href='{{site.url}}/favicon.svg' color='#5b3340'>
+<link rel="manifest" href="/manifest.json">
 <style>
     body {
       width: 100%;
@@ -31,5 +33,16 @@ title: wzhn.me
     <img src="{{site.url}}{{site.baseurl}}/portfolio/{{file.name}}" alt="">
   {% endif %}
   {% endfor %}
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').then((reg) => {
+      console.log('SW registered: ', reg);
+    }).catch((err) => {
+      console.log('SW registration failed: ', err);
+    });
+  });
+}
+</script>
 </body>
 </html>
